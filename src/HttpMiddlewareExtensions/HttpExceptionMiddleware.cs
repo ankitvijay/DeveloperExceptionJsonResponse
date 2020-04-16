@@ -44,9 +44,14 @@ namespace HttpMiddlewareExtensions
 
     public static class HttpExceptionMiddlewareExtensions
     {
-        public static IApplicationBuilder UseDeveloperExceptionResponse(this IApplicationBuilder builder)
+        /// <summary>
+        /// Captures synchronous and asynchronous <see cref="Exception"/> instances from the pipeline and generates HTML error responses.
+        /// </summary>
+        /// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
+        /// <returns>A reference to the <paramref name="app"/> after the operation has completed.</returns>
+        public static IApplicationBuilder UseDeveloperExceptionResponse(this IApplicationBuilder app)
         {
-            return builder.UseMiddleware<HttpExceptionMiddleware>();
+            return app.UseMiddleware<HttpExceptionMiddleware>();
         }
     }
 }

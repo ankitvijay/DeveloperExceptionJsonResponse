@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HttpMiddlewareExtensions\HttpMiddlewareExtensions\HttpMiddlewareExtensions.csproj" />
+    <ProjectReference Include="..\HttpMiddlewareExtensions\HttpMiddlewareExtensions.csproj" />
   </ItemGroup>
 
 

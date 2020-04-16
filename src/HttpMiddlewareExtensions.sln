@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpMiddlewareExtensions", "HttpMiddlewareExtensions\HttpMiddlewareExtensions\HttpMiddlewareExtensions.csproj", "{84BAFD25-2363-4EF0-9074-9506AEB2A734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpMiddlewareExtensions", "HttpMiddlewareExtensions\HttpMiddlewareExtensions.csproj", "{84BAFD25-2363-4EF0-9074-9506AEB2A734}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpMiddlewareExtensions.Sample", "HttpMiddlewareExtensions.Sample\HttpMiddlewareExtensions.Sample.csproj", "{D14E66BF-A61A-4DD2-8D00-BCABBD93D3BE}"
 EndProject
