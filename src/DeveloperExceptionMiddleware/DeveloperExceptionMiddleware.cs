@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace HttpMiddlewareExtensions
+// ReSharper disable once CheckNamespace
+namespace Microsoft.AspNetCore.Builder
 {
-    public class HttpExceptionMiddleware
+    public class DeveloperExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<HttpExceptionMiddleware> _logger;
+        private readonly ILogger<DeveloperExceptionMiddleware> _logger;
 
-        public HttpExceptionMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
+        public DeveloperExceptionMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
         {
             _next = next ?? throw new ArgumentNullException(nameof(next));
-            _logger = loggerFactory?.CreateLogger<HttpExceptionMiddleware>() ?? throw new ArgumentNullException(nameof(loggerFactory));
+            _logger = loggerFactory?.CreateLogger<DeveloperExceptionMiddleware>() ?? throw new ArgumentNullException(nameof(loggerFactory));
         }
 
         public async Task Invoke(HttpContext context)
@@ -42,7 +42,7 @@ namespace HttpMiddlewareExtensions
         }
     }
 
-    public static class HttpExceptionMiddlewareExtensions
+    public static class DeveloperExceptionMiddlewareExtensions
     {
         /// <summary>
         /// Captures synchronous and asynchronous <see cref="Exception"/> instances from the pipeline and generates HTML error responses.
@@ -51,7 +51,7 @@ namespace HttpMiddlewareExtensions
         /// <returns>A reference to the <paramref name="app"/> after the operation has completed.</returns>
         public static IApplicationBuilder UseDeveloperExceptionResponse(this IApplicationBuilder app)
         {
-            return app.UseMiddleware<HttpExceptionMiddleware>();
+            return app.UseMiddleware<DeveloperExceptionMiddleware>();
         }
     }
 }

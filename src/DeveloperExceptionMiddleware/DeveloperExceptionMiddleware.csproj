@@ -7,8 +7,11 @@
     <PackageTags>aspnetcore</PackageTags>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <Authors>https://github.com/ankitvijay</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>Ankit Vijay</Authors>
     <Description>Http Middleware extension to create developer exception response inline with `UseDeveloperExceptionPage`.</Description>
+    <PackageDescription>Http Middleware extension to create developer exception response inline with `UseDeveloperExceptionPage`.</PackageDescription>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

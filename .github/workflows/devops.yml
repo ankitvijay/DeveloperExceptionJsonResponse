@@ -75,4 +75,4 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - name: Nuget Pack
-      run: dotnet pack HttpMiddlewareExtensions/HttpMiddlewareExtensions.csproj --configuration Release --no-restore -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }}
+      run: dotnet pack DeveloperExceptionMiddleware/DeveloperExceptionMiddleware.csproj --configuration Release --no-restore -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }}
