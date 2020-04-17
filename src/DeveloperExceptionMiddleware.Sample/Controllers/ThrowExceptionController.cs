@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace DeveloperExceptionMiddlewareExtensions.Sample.Controllers
+namespace DeveloperExceptionMiddleware.Sample.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -19,7 +19,7 @@ namespace DeveloperExceptionMiddlewareExtensions.Sample.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            throw new Exception("This is an exception");
+            throw new SuperSpecialException();
         }
     }
 }

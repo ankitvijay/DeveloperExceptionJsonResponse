@@ -16,7 +16,8 @@ namespace Microsoft.AspNetCore.Builder
         public DeveloperExceptionMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
         {
             _next = next ?? throw new ArgumentNullException(nameof(next));
-            _logger = loggerFactory?.CreateLogger<DeveloperExceptionMiddleware>() ?? throw new ArgumentNullException(nameof(loggerFactory));
+            _logger = loggerFactory?.CreateLogger<DeveloperExceptionMiddleware>() 
+                      ?? throw new ArgumentNullException(nameof(loggerFactory));
         }
 
         public async Task Invoke(HttpContext context)
@@ -51,6 +52,11 @@ namespace Microsoft.AspNetCore.Builder
         /// <returns>A reference to the <paramref name="app"/> after the operation has completed.</returns>
         public static IApplicationBuilder UseDeveloperExceptionResponse(this IApplicationBuilder app)
         {
+            if (app == null)
+            {
+                throw new ArgumentNullException(nameof(app));
+            }
+
             return app.UseMiddleware<DeveloperExceptionMiddleware>();
         }
     }
