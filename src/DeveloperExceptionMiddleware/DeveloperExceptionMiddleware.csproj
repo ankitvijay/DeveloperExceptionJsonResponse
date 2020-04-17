@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--<TargetFramework>netstandard2.0</TargetFramework>-->
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageTags>aspnetcore</PackageTags>
@@ -9,8 +8,8 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Ankit Vijay</Authors>
-    <Description>Http Middleware extension to create developer exception response inline with `UseDeveloperExceptionPage`.</Description>
-    <PackageDescription>Http Middleware extension to create developer exception response inline with `UseDeveloperExceptionPage`.</PackageDescription>
+    <Description>Http Middleware extension to create developer exception response inline with UseDeveloperExceptionPage.</Description>
+    <PackageDescription>Http Middleware extension to create developer exception response inline with useDeveloperExceptionPage.</PackageDescription>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 

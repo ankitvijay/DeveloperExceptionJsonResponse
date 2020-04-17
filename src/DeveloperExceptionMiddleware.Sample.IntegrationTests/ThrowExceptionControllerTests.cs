@@ -28,6 +28,8 @@ namespace DeveloperExceptionMiddleware.Sample.IntegrationTests
 
             // Assert
             response.StatusCode.ShouldBe(HttpStatusCode.InternalServerError);
+            response.Content.Headers.ContentType.MediaType.ShouldBe("application/json");
+
             var result = await Deserialize<SuperSpecialException>(response);
             result.ShouldNotBeNull();
             result.ShouldBeOfType<SuperSpecialException>();
