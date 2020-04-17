@@ -75,4 +75,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - name: Nuget Pack
-      run: dotnet pack DeveloperExceptionMiddleware/DeveloperExceptionMiddleware.csproj --configuration Release --no-restore -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }}
+      run: dotnet pack DeveloperExceptionMiddleware/DeveloperExceptionMiddleware.csproj --configuration Release --no-restore -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -o output
+
+    - name: Push to Nuget.org
+      run: dotnet nuget push output/*.nupkg  --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
