@@ -52,12 +52,9 @@ namespace Microsoft.AspNetCore.Builder
         /// <returns>A reference to the <paramref name="app"/> after the operation has completed.</returns>
         public static IApplicationBuilder UseDeveloperExceptionResponse(this IApplicationBuilder app)
         {
-            if (app == null)
-            {
-                throw new ArgumentNullException(nameof(app));
-            }
-
-            return app.UseMiddleware<DeveloperExceptionMiddleware>();
+            return app == null
+                ? throw new ArgumentNullException(nameof(app))
+                : app.UseMiddleware<DeveloperExceptionMiddleware>();
         }
     }
 }
