@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
-using DeveloperExceptionMiddleware;
+using DeveloperExceptionJsonResponse;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.AspNetCore.Builder
 {
-    public class DeveloperExceptionMiddleware
+    public class DeveloperExceptionJsonResponseMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<DeveloperExceptionMiddleware> _logger;
+        private readonly ILogger<DeveloperExceptionJsonResponseMiddleware> _logger;
 
-        public DeveloperExceptionMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
+        public DeveloperExceptionJsonResponseMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
         {
             _next = next ?? throw new ArgumentNullException(nameof(next));
-            _logger = loggerFactory?.CreateLogger<DeveloperExceptionMiddleware>() 
+            _logger = loggerFactory?.CreateLogger<DeveloperExceptionJsonResponseMiddleware>() 
                       ?? throw new ArgumentNullException(nameof(loggerFactory));
         }
 
@@ -47,18 +44,18 @@ namespace Microsoft.AspNetCore.Builder
         }
     }
 
-    public static class DeveloperExceptionMiddlewareExtensions
+    public static class DeveloperExceptionJsonResponseMiddlewareExtensions
     {
         /// <summary>
         /// Captures synchronous and asynchronous <see cref="Exception"/> instances from the pipeline and generates HTML error responses.
         /// </summary>
         /// <param name="app">The <see cref="IApplicationBuilder"/>.</param>
         /// <returns>A reference to the <paramref name="app"/> after the operation has completed.</returns>
-        public static IApplicationBuilder UseDeveloperExceptionResponse(this IApplicationBuilder app)
+        public static IApplicationBuilder UseDeveloperExceptionJsonResponse(this IApplicationBuilder app)
         {
             return app == null
                 ? throw new ArgumentNullException(nameof(app))
-                : app.UseMiddleware<DeveloperExceptionMiddleware>();
+                : app.UseMiddleware<DeveloperExceptionJsonResponseMiddleware>();
         }
     }
 }

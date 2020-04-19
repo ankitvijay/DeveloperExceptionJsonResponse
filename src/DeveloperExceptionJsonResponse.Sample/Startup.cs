@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace DeveloperExceptionMiddlewareExtensions.Sample
+namespace DeveloperExceptionJsonResponse.Sample
 {
     public class Startup
     {
@@ -27,7 +26,7 @@ namespace DeveloperExceptionMiddlewareExtensions.Sample
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionResponse();
+                app.UseDeveloperExceptionJsonResponse();
             }
 
             app.UseHttpsRedirection();

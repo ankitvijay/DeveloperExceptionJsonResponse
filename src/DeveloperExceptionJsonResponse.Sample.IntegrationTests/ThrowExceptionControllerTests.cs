@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Shouldly;
 using Xunit;
 
-namespace DeveloperExceptionMiddleware.Sample.IntegrationTests
+namespace DeveloperExceptionJsonResponse.Sample.IntegrationTests
 {
     public class ThrowExceptionControllerTests : IClassFixture<TestServerFixture>
     {

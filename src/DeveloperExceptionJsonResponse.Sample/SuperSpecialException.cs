@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace DeveloperExceptionMiddleware.Sample
+namespace DeveloperExceptionJsonResponse.Sample
 {
     /// <summary>
     /// The super special exception raised by the sample application.

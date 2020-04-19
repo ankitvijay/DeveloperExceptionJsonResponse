@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace DeveloperExceptionMiddleware.Sample.Controllers
+namespace DeveloperExceptionJsonResponse.Sample.Controllers
 {
     [ApiController]
     [Route("[controller]")]

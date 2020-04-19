@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using DeveloperExceptionMiddlewareExtensions.Sample;
+﻿using System.Net.Http;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Xunit;
 
-namespace DeveloperExceptionMiddleware.Sample.IntegrationTests
+namespace DeveloperExceptionJsonResponse.Sample.IntegrationTests
 {
     public class TestServerFixture : WebApplicationFactory<Program>
     {
