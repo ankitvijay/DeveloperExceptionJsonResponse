@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace DeveloperExceptionMiddlewareExtensions.Sample
+namespace DeveloperExceptionJsonResponse.Sample
 {
     public class Program
     {

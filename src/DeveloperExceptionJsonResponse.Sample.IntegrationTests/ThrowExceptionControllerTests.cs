@@ -1,12 +1,11 @@
-﻿using System.IO;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Shouldly;
 using Xunit;
 
-namespace DeveloperExceptionMiddleware.Sample.IntegrationTests
+namespace DeveloperExceptionJsonResponse.Sample.IntegrationTests
 {
     public class ThrowExceptionControllerTests : IClassFixture<TestServerFixture>
     {
@@ -30,19 +29,24 @@ namespace DeveloperExceptionMiddleware.Sample.IntegrationTests
             response.StatusCode.ShouldBe(HttpStatusCode.InternalServerError);
             response.Content.Headers.ContentType.MediaType.ShouldBe("application/json");
 
-            var result = await Deserialize<SuperSpecialException>(response);
+            var result = await Deserialize<Error>(response);
+            
             result.ShouldNotBeNull();
-            result.ShouldBeOfType<SuperSpecialException>();
+            result.ExceptionType.ShouldBe(typeof(SuperSpecialException).ToString());
+            result.StackTrace.ShouldNotBeNull();
+            result.Message.ShouldNotBeNull();
+            
+            result.Data.ShouldNotBeNull();
+            result.Data.Count.ShouldBe(3);
+            result.Data.ShouldContainKey("AdditionalInfo");
+            result.Data.ShouldContainKey("ErrorCode");
+            result.Data.ShouldContainKey("TimeStamp");
         }
 
         private static async Task<T> Deserialize<T>(HttpResponseMessage message)
         {
-            await using var stream = await message.Content.ReadAsStreamAsync();
-            var serializer = new JsonSerializer();
-
-            using var sr = new StreamReader(stream);
-            using var jsonTextReader = new JsonTextReader(sr);
-            return serializer.Deserialize<T>(jsonTextReader);
+            var jsonString = await message.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(jsonString);
         }
     }
 }

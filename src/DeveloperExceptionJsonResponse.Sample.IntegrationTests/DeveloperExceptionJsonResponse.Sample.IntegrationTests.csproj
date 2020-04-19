@@ -21,6 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeveloperExceptionMiddleware.Sample\DeveloperExceptionMiddleware.Sample.csproj" />
+    <ProjectReference Include="..\DeveloperExceptionJsonResponse.Sample\DeveloperExceptionJsonResponse.Sample.csproj" />
   </ItemGroup>
 </Project>
