@@ -11,6 +11,7 @@
     <Description>Http Middleware extension to create developer exception response inline with UseDeveloperExceptionPage.</Description>
     <PackageDescription>Http Middleware extension to create developer exception response inline with useDeveloperExceptionPage.</PackageDescription>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ProjectUrl>https://ankitvijay.github.io/DeveloperExceptionJsonResponse/</ProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
