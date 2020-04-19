@@ -58,13 +58,13 @@ jobs:
 
     - name: Nuget Pack
       if: ${{ github.event_name == 'push' }}
-      run: dotnet pack DeveloperExceptionResponse/DeveloperExceptionResponse.csproj --configuration Release --no-build -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -o output
+      run: dotnet pack DeveloperExceptionJsonResponse/DeveloperExceptionJsonResponse.csproj --configuration Release --no-build -p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2 }} -o output
 
     - name: Upload artifact
       if: ${{ github.event_name == 'push' }}
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: DeveloperExceptionResponse
+        name: DeveloperExceptionJsonResponse
         path: src/output
 
     - name: Push to Nuget.org
