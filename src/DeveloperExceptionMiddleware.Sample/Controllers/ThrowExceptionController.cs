@@ -19,7 +19,12 @@ namespace DeveloperExceptionMiddleware.Sample.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            throw new SuperSpecialException();
+            var ex = new SuperSpecialException();
+
+            ex.Data.Add("AdditionalInfo", "Additional information");
+            ex.Data["ErrorCode"] = 100;
+            ex.Data["TimeStamp"] = DateTime.UtcNow;
+            throw ex;
         }
     }
 }

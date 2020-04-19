@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
+using DeveloperExceptionMiddleware;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.AspNetCore.Builder
@@ -37,8 +41,8 @@ namespace Microsoft.AspNetCore.Builder
                 context.Response.Clear();
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 context.Response.ContentType = "application/json";
-                
-                await context.Response.WriteAsync(JsonConvert.SerializeObject(ex));
+
+                await context.Response.WriteAsync(JsonSerializer.Serialize(new Error(ex)));
             }
         }
     }

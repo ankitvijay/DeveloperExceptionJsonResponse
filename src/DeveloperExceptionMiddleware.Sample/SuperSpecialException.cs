@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace DeveloperExceptionMiddleware.Sample
@@ -6,13 +8,14 @@ namespace DeveloperExceptionMiddleware.Sample
     /// <summary>
     /// The super special exception raised by the sample application.
     /// </summary>
-    [Serializable]
     public class SuperSpecialException : Exception
     {
+        private const string DefaultExceptionMessage = "This is a super special exception";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SuperSpecialException"/> class
         /// </summary>
-        public SuperSpecialException() : this("This is a super special exception")
+        public SuperSpecialException() : this(DefaultExceptionMessage)
         {
         }
 
@@ -40,7 +43,7 @@ namespace DeveloperExceptionMiddleware.Sample
         /// </summary>
         /// <param name="info"><see cref="SerializationInfo"/></param>
         /// <param name="context"><see cref="StreamingContext"/></param>
-        protected SuperSpecialException(SerializationInfo info, StreamingContext context)
+        private SuperSpecialException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
